@@ -1,5 +1,18 @@
 @echo off
 cls
+
+echo ==============================================================
+echo; 	
+echo    .----.                                .---.
+echo	  '---,  `.____________________________.'  _  `.
+echo        )   ____________________________   ^<_^>  :
+echo	  .---'  .'                            `.     .'
+echo	   `----'           Tune Me Up!          `---'	 
+echo;
+echo                                                    by chesire
+echo ==============================================================
+echo;
+
 set TAB=    
 echo [*] Running System File Checker (SFC)... && echo;
 sfc /scannow > nul 2>&1

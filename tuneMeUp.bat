@@ -44,18 +44,25 @@ cleanmgr /d d: /sagerun:2 > nul 2>&1
 
 set drive=
 set /p drive="[*] Enter backup drive [Press enter to abort]: " && echo;
+
+:loop
 if "%drive%" EQU "" (
 	echo;
 	echo %TAB%[!] Aborting backup... && echo;
 ) ELSE (
+	set drive=
 	if "%drive%" EQU "C" (
 		echo %TAB%[!] C is not a backup drive && echo;
+		set /p drive="[*] Enter backup drive [Press enter to abort]: " && echo;
+		goto loop
 	) ELSE (
 		if "%drive%" EQU "D" (
 			echo %TAB%[!] D is not a backup drive && echo;
+			set /p drive="[*] Enter backup drive [Press enter to abort]: " && echo;
+			goto loop
 		) ELSE (
 			echo [*] Performing backup of C: and D: drives on %drive%: drive && echo;
-			wbadmin START BACKUP -backuptarget:"%drive%": -include:C:,D: -allCritical -quiet > nul 2>&1
+			
 		)
 	)
 )

@@ -14,6 +14,10 @@ echo ==============================================================
 echo;
 
 set TAB=    
+
+echo [*] Creating restore point... && echo;
+wmic /Namespace:\\root\default Path SystemRestore Call CreateRestorePoint "Restore Point created by tuneMeUp.bat", 100, 7 > nul 2>&1
+
 echo [*] Running System File Checker (SFC)... && echo;
 sfc /scannow > nul 2>&1
 
